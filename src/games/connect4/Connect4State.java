@@ -5,6 +5,8 @@ package games.connect4;
 import main.*;
 import java.util.*;
 
+//0,0 is in the upper left of the field 
+
 public class Connect4State extends State {
     static final int ROWS = 6;
     static final int COLS = 7;

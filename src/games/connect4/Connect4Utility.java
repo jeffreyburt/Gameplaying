@@ -34,7 +34,8 @@ class Connect4Utility {
     // returns true if the run that starts at (r,c) and continues for length cells has
     // exactly the given numbers of black, red, and empty cells.
     // The direction of the run is indicated by deltaR and deltaC
-    private static boolean checkRun(Connect4State state, int length, int r, int c, int deltaR, int deltaC, int black, int red, int empty) {
+    private static boolean checkRun(Connect4State state, int length, int r, int c, int deltaR, int deltaC, int black,
+                                    int red, int empty) {
         int countBlack = 0, countRed = 0, countEmpty = 0;
         for (int i = 0; i < length; i++) {
             if (state.isBlackCell(r, c))

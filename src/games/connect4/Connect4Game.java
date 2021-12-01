@@ -9,7 +9,8 @@ public class Connect4Game implements Game {
     private GamePanel gamePanel;
 
     private Evaluator[] evaluators = new Evaluator[]{
-            new Connect4Evaluator0()
+            new Connect4Evaluator0(),
+            new Connect4Evaluator1()
     };
 
     public Connect4Game() {
