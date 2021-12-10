@@ -10,7 +10,8 @@ public class Connect4Game implements Game {
 
     private Evaluator[] evaluators = new Evaluator[]{
             new Connect4Evaluator0(),
-            new Connect4Evaluator1()
+            new Connect4Evaluator1(),
+            new Connect4Evaluator2()
     };
 
     public Connect4Game() {

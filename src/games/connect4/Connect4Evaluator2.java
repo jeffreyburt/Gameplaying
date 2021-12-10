@@ -6,7 +6,7 @@ import main.State;
 
 import java.util.ArrayList;
 
-public class Connect4Evaluator1 implements Evaluator {
+public class Connect4Evaluator2 implements Evaluator {
     /**
      * Computes the heuristic evaluation of a state,
      * from the point of view of the player whose Side is ONE.
@@ -46,9 +46,9 @@ public class Connect4Evaluator1 implements Evaluator {
 
         //basic winner determinations
         if (board.blackWon())
-            return 1000000000;
+            return -1000000000;
         if (board.redWon()){
-            return -100000000;
+            return 100000000;
         }
 
         //general calculations
@@ -63,7 +63,7 @@ public class Connect4Evaluator1 implements Evaluator {
         total -= (Connect4Utility.countRuns(board,4,0,3,1) * three_in_row * red_multiplier);
 
 
-        return total;
+        return total * -1;
     }
 
 
@@ -97,7 +97,7 @@ public class Connect4Evaluator1 implements Evaluator {
     // exactly the given numbers of black, red, and empty cells.
     // The direction of the run is indicated by deltaR and deltaC
     private boolean checkRun_available_tiles(Connect4State state, int length, int r, int c, int deltaR, int deltaC, int black,
-                                                    int red, int empty) {
+                                             int red, int empty) {
         int countBlack = 0, countRed = 0, countEmpty = 0;
         for (int i = 0; i < length; i++) {
             if (state.isBlackCell(r, c))
@@ -105,8 +105,8 @@ public class Connect4Evaluator1 implements Evaluator {
             else if (state.isRedCell(r, c))
                 countRed++;
             else
-                if(r == 5 || is_tile_accessible(r,c,state))
-            r += deltaR;
+            if(r == 5 || is_tile_accessible(r,c,state))
+                r += deltaR;
             c += deltaC;
         }
         return (countBlack == black && countRed == red && countEmpty == empty);
@@ -117,7 +117,7 @@ public class Connect4Evaluator1 implements Evaluator {
     }
 
     public String toString() {
-        return "C4-1, designed by Jeffrey Burt";
+        return "Seth's incredible connect 4 evaluator";
     }
 
 
